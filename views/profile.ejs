@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= user.name %></title>
+  <link rel="icon" href="https://novoresume.com/images/media_kit/colorful-simple-logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    .profile{
+      background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+    }
+    .bg{
+      background-color: #CDDCDC;
+ background-image: radial-gradient(at 50% 100%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.25) 100%);
+ background-blend-mode: screen, overlay;
+ background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body class="bg text-dark">
+
+  <!-- Navbar -->
+  <nav class="p-4 bg-blue-900 shadow-md">
+    <div class="flex items-center justify-between max-w-screen-xl px-16 mx-auto">
+      <h1 class="text-2xl font-semibold text-white"><a href="/" class="text-white">SwiftCv - Resume Builder</a></h1>
+      <div class="flex space-x-4">
+        <a href="/" class="px-4 py-2 text-sm text-white duration-300 ease-in-out rounded hover:bg-yellow-500">Home</a>
+        <a href="/profile" class="px-4 py-2 text-sm text-white duration-300 ease-in-out rounded hover:bg-yellow-500">Profile</a>
+         <% if (user && user.role !== 'user') { %>  
+          <a href="/admin" class="px-4 py-2 text-sm text-white duration-300 ease-in-out border-b rounded hover:text-yellow-400">⚡Admin Dashboard </a>
+          <% } %>
+        <a href="/logout" class="px-4 py-2 text-sm text-white duration-300 ease-in-out rounded hover:bg-yellow-500">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Profile Section -->
+  <section class="max-w-screen-xl px-16 py-8 mx-auto">
+    <div class="flex items-center justify-between w-1/2 p-8 mx-auto bg-blue-200 rounded-lg shadow-md profile">
+      <div>
+        <h1 class="mb-6 text-2xl font-semibold text-white">User Profile</h1> 
+        <img src="https://img.freepik.com/premium-psd/contact-icon-illustration-isolated_23-2151903357.jpg?semt=ais_hybrid" class="m-3 rounded-full" width="120" alt="">
+        <ul class="text-xl text-yellow-300">
+          <li class="mb-6 text-2xl font-semibold text-white"><span class="font-semibold text-gray-200"></span> <%= user.name %> </li>
+          <li><span class="font-semibold text-gray-200">Phone:</span> <%= user.phone %></li>
+          <li><span class="font-semibold text-gray-200">Email:</span> <%= user.email %></li>
+          <li><span class="font-semibold text-gray-200">Phone:</span> <%= user.phone %></li>
+          <li><span class="font-semibold text-gray-200">Role:</span> <%= user.role %></li>
+          <li><span class="font-semibold text-gray-200">Gender:</span> <%= user.gender %></li>
+          <li><span class="font-semibold text-gray-200">Location:</span> <%= user.location %></li>
+        </ul>
+      </div>
+    
+      <!-- Analytics (Circular Progress Bar) -->
+      <div class="flex justify-center mt-8">
+       
+      </div>
+
+    </div>
+    <a href="/" class="block w-1/2 px-8 py-2 mx-auto mt-6 text-center text-white bg-blue-600 rounded hover:bg-blue-700">Back to Home</a>
+
+  </section>
+</body>
+</html>
